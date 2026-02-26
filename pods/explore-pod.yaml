@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: explore-storage
+  namespace: undergrad-ms
+spec:
+  containers:
+  - name: explorer
+    image: ubuntu:22.04
+    command: ["sleep", "infinity"]
+    resources:
+      limits:
+        cpu: "100m"
+        memory: 256Mi
+      requests:
+        cpu: "50m"
+        memory: 128Mi
+    volumeMounts:
+    - name: data-volume
+      mountPath: /workspace
+  volumes:
+  - name: data-volume
+    persistentVolumeClaim:
+      claimName: open-rooms-texture-detailer-vol
+  restartPolicy: Never
