@@ -12,11 +12,11 @@ spec:
     command: ["sleep", "infinity"]
     resources:
       limits:
-        nvidia.com/gpu: 1
+        nvidia.com/l40: 1
         cpu: "4"
         memory: 16Gi
       requests:
-        nvidia.com/gpu: 1
+        nvidia.com/l40: 1
         cpu: "2"
         memory: 8Gi
     volumeMounts:
